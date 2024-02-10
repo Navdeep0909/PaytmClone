@@ -15,7 +15,6 @@ const authMiddleware = (req, res, next) => {
     // console.log(token)
 
     try{
-        console.log("----------------------------Inside the try block----------------------------")
         const decoded = jwt.verify(token, JWT_SECRET);
         // console.log(decoded)
 
@@ -23,9 +22,7 @@ const authMiddleware = (req, res, next) => {
 
         next();
     }catch(err){
-        console.log("----------------------------Inside the catch block----------------------------")
         return res.status(403).json({err});
-
     }
 
 }
