@@ -9,21 +9,21 @@
 ## Signup
 ## Screenshot
 
-![Screenshot of My Application](../../screenshot/SignupPageScreenshot.png)
+![Screenshot of My Application](../paytm/screenshot/SignupPageScreenshot.png)
 
 ## Signin
 ## Screenshot
 
-![Screenshot of My Application](../../screenshot/SigninPageScreenshot.png)
+![Screenshot of My Application](../paytm/screenshot/SigninPageScreenshot.png)
 
 ## SendMoney
 ## Screenshot
 
-![Screenshot of My Application](../../screenshot/SendMoney.png)
+![Screenshot of My Application](../paytm/screenshot/SendMoney.png)
 
 
 ## Dashboard
 ## Screenshot
 
-![Screenshot of My Application](../../screenshot/DashboardPageScreenshot.png)
+![Screenshot of My Application](../paytm/screenshot/DashboardPageScreenshot.png)
 
