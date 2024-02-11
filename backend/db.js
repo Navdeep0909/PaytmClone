@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://navdeep0909:MaaPapag1@cluster0.0vusxfw.mongodb.net/paytm")
+//Need to add the connection string to connect with the database
+mongoose.connect("connection string")
 
 const userSchema = new mongoose.Schema({
     username: String,
