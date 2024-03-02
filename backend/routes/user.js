@@ -133,7 +133,6 @@ router.put("/", authMiddleware, async (req, res) => {
 router.get("/bulk", async (req, res) => {
 
     const filter = req.query.filter || "";
-    console.log(".....................Filter is........................:", filter);
     const users = await User.find({
         $or: [{
             firstName: {
@@ -159,6 +158,18 @@ router.get("/bulk", async (req, res) => {
     //     }))
     // })
 })
+
+
+router.get("/getUser", authMiddleware, async (req, res) => {
+    const user = await User.findOne({_id: req.userId})
+
+    res.json({
+        user
+    })
+})
+
+
+
 
 
 module.exports = router;

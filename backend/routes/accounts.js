@@ -6,13 +6,19 @@ const { default: mongoose } = require("mongoose");
 const router = express.Router();
 
 router.get("/balance", authMiddleware, async (req, res) => {
-    const account = await Account.findOne({
-        userId: req.userId,
-    }) 
+    const account = await Account.findOne({userId: req.userId}) 
+    
+    if (account != null) {
+        res.json({
+            balance: account.balance,
+        })
+    }else{
+        res.json({
+            message: "Account not exist!"
+        })
+    }
 
-    res.json({
-        balance: account.balance,
-    })
+    
 });
 
 

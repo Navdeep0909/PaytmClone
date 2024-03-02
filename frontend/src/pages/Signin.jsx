@@ -26,11 +26,11 @@ export const Signin = () => {
           setPassword(e.target.value)
         }} placeholder="123456" label={"Password"} />
         <div className="pt-4">
-          <Button onClick={()=>{
-            const response = axios.post("http://localhost:3000/api/v1/user/signin", {
-              username,
-              password
-            })
+          <Button onClick={async ()=>{
+            const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
+                username,
+                password
+                })
             localStorage.setItem("token", response.data.token)
             navigate("/dashboard")
           }} label={"Sign in"} />

@@ -3,17 +3,23 @@ import { Button } from "./Button"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
-export const Users = () => {
+export const Users = ({userId}) => {
     //Need to add debouncing as the onchange keeps on rendering the page while the user is typing, it should wait
     const [users, setUsers] = useState([]);
     const [filter, setFilter] = useState("");
 
+    // console.log("User id outside useEffect"+userId)
     useEffect(()=>{
-        axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter)
-            .then((response)=>{
-                setUsers(response.data.users);
-            })
-    }, [filter])
+        async function fetchUsers(){
+            const response = await axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter)
+            const usersList = response.data.users
+            //To filter out the login user
+            const newUserList = usersList.filter(user => user._id !== userId)
+            // console.log(newUserList);
+            setUsers(newUserList);
+        }
+        fetchUsers();
+    }, [filter, userId])
 
     return <>
         <div className="font-bold mt-6 text-lg">
@@ -26,7 +32,7 @@ export const Users = () => {
         </div>
         <div>
              {/*Need to use the users?, because getting undefined-reading-map*/}
-            {users?.map(user => <User user={user} />)}
+            {users?.map(user => <User key={user._id} user={user} />)}
         </div>
     </>
 }
